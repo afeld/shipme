@@ -1,0 +1,30 @@
+<div class="row">
+  <div class="col-md-12">
+    <h3>Deployments for: {{ repo }}</h3>
+    <div>
+      <b>Environment:</b>
+      <select ng-model="environment" ng-options="env for env in environments">
+        <option value="">All</option>
+      </select>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="row" ng-repeat="deployment in deployments | filter:{ environment: environment } ">
+      <div class="col-md-12">
+        <div class="deployment">
+          <b>{{ deployment.environment }}</b>:
+          {{ deployment.updated_at }}
+          <a ng-repeat="status in deployment.statuses"
+           ng-class="status.state"
+           title="{{status.server}}"
+           class="status">
+           &nbsp;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
