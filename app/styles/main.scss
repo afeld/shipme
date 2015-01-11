@@ -88,9 +88,9 @@ body {
 }
 
 .deployment {
-  margin-top: 10px;
-  border: 1px solid #ccc;
-  padding: 10px;
+  .environment {
+    font-weight: bold;
+  }
   a.status {
     display: inline-block;
     width: 15px;
