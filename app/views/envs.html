@@ -17,6 +17,8 @@
         <div class="deployment">
           <b>{{ deployment.environment }}</b>:
           {{ deployment.updated_at }}
+          <a href="https://github.com/{{ repo }}/tree/{{ deployment.ref }}">{{ deployment.ref }}</a>
+          (<a href="https://github.com/{{ repo }}/commit/{{ deployment.sha }}">{{ deployment.sha | limitTo: 7 }}</a>)
           <a ng-repeat="status in deployment.statuses"
            ng-class="status.state"
            title="{{status.server}}"
