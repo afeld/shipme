@@ -15,7 +15,11 @@
     <table class="table">
       <tr class="deployment" ng-repeat="deployment in deployments | filter:{ environment: environment } ">
         <td class="environment">{{ deployment.environment }}</td>
-        <td>{{ deployment.updated_at }}</td>
+        <td>
+          <span title="{{ deployment.updated_at | date:'M/d/yy H:mm:ss' }} UTC">
+            {{ deployment.updated_at | date:'M/d h:mm a':'UTC' }}
+          </span>
+        </td>
         <td><a href="https://github.com/{{ repo }}/tree/{{ deployment.ref }}">{{ deployment.ref }}</a></td>
         <td><a href="https://github.com/{{ repo }}/commit/{{ deployment.sha }}">{{ deployment.sha | limitTo: 7 }}</a></td>
         <td>
